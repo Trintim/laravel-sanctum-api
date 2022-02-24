@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
 use App\Models\Products;
 use Illuminate\Http\Request;
@@ -39,5 +40,23 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::put('products/{id}', [ProductController::class,'update']);
     Route::delete('products/{id}', [ProductController::class,'destroy']);
     Route::post('/logout', [AuthController::class, 'logout']);
+
+    //exemple 
+    // list all posts
+    Route::get('posts', [PostController::class, 'post']);
+    // get a post
+    Route::get('posts/{id}', [PostController::class, 'singlePost']);
+    // add a new post
+    Route::post('posts', [PostController::class, 'createPost']);
+    // updating a post
+    Route::put('posts/{id}', [PostController::class, 'updatePost']);
+    // delete a post
+    Route::delete('posts/{id}', [PostController::class, 'deletePost']);
+    // add a new user with writer scope
+    Route::post('users/sub-admin', [AuthController::class, 'createSubAdmin']);
+    // add a new user with subscriber scope
+    Route::post('users/associates', [AuthController::class, 'createAssociates']);
+    // delete a user
+    Route::delete('users/{id}', [AuthController::class, 'deleteUser']);
 
 });
