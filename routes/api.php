@@ -24,6 +24,7 @@ Route::get('products', [ProductController::class,'index']);
 Route::get('products/{id}', [ProductController::class,'show']);
 Route::get('products/search/{name}', [ProductController::class,'search']);
 /* Route::get('products/search/{name}', [ProductController::class,'search']); */
+//Route::post('users/update/{id}', [AuthController::class, 'updateUser']);
 
 
 /* Route::post('/products', function(){
@@ -58,5 +59,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('users/associates', [AuthController::class, 'createAssociates']);
     // delete a user
     Route::delete('users/{id}', [AuthController::class, 'deleteUser']);
+    // update a user
+    Route::post('users/update/{id}', [AuthController::class, 'updateUser']);
 
 });
