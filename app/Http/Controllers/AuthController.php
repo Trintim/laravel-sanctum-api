@@ -149,6 +149,7 @@ class AuthController extends Controller
         $user = $request->user();
         if ($this->isAdmin($user)) {
             $user = User::find($id);
+            //($user);
             if ($user->role === 1 && $user->id == $id) {
                 $user->name = $request->input('name');
                 $user->email = $request->input('email');
@@ -164,10 +165,11 @@ class AuthController extends Controller
             $user = User::find($id);
             //dd($user);
             if ($user->role === 2 && $user->id == $id) {
-                //dd($user);
+                dd($user->id, $user->role);
                 $user->name = $request->input('name');
                 $user->email = $request->input('email');
                 $user->password = Hash::make($request->input('password'));
+                dd($user);
                 $user->update();
                
                 return $this->onSuccess($user, 'User Updated');
