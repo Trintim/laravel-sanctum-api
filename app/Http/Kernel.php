@@ -2,7 +2,10 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\AdminAccess;
+use App\Http\Middleware\AssociatesAccess;
 use App\Http\Middleware\RestrictRegistrationToOneAdmin;
+use App\Http\Middleware\SubAdminAccess;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -64,6 +67,10 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'restrictothers' => RestrictRegistrationToOneAdmin::class
+        'restrictothers' => RestrictRegistrationToOneAdmin::class,
+        'admin' => AdminAccess::class,
+        'subAdmin' => SubAdminAccess::class,
+        'associates' => AssociatesAccess::class
+
     ];
 }
