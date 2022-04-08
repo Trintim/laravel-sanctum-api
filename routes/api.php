@@ -44,7 +44,7 @@ Route::prefix('admin/')->middleware(['auth:sanctum', 'admin'])->group(function (
     Route::post('logout', [AuthController::class, 'logout']);
     Route::get('products/{id}', [ProductController::class,'show']);
 
-    //exemple 
+    //exemple
     // list all posts
     Route::get('posts', [PostController::class, 'post']);
     // get a post
@@ -77,7 +77,7 @@ Route::prefix('subAdmin/')->middleware(['auth:sanctum', 'subAdmin'])->group(func
     Route::post('logout', [AuthController::class, 'logout']);
     Route::get('products/{id}', [ProductController::class,'show']);
 
-    //exemple 
+    //exemple
     // list all posts
     Route::get('posts', [PostController::class, 'post']);
     // get a post
@@ -110,7 +110,7 @@ Route::prefix('associates/')->middleware(['auth:sanctum', 'associates'])->group(
     Route::post('logout', [AuthController::class, 'logout']);
     Route::get('products/{id}', [ProductController::class,'show']);
 
-    //exemple 
+    //exemple
     // list all posts
     Route::get('posts', [PostController::class, 'post']);
     // get a post
